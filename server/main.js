@@ -87,6 +87,9 @@ wss.on("connection", (ws, incomeMessage) => {
 
 app.use(express.static(path.join(__dirname, "/dist")));
 
+app.get("/api/home", (req, res) => {
+  return res.send("Home Api Express is running");
+});
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/dist/index.html"));
 });
