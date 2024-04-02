@@ -12,7 +12,7 @@ export default function Action({ Icon, name, isOn, relayName, send }: IAction) {
     send(JSON.stringify(payload));
   }
   return (
-    <div className={`action ${isOn ? "ON" : ""}`} onClick={onClick}>
+    <div className={`action ${!isOn ? "ON" : ""}`} onClick={onClick}>
       <div className="action-icon">
         <Icon />
       </div>

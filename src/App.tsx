@@ -10,14 +10,14 @@ import Bulb from "./assets/electric-light-bulb.svg?react";
 import BulbOff from "./assets/offbulb.svg?react";
 import ArrowUp from "./assets/arrow-up-small.svg?react";
 import ArrowDown from "./assets/arrow-down-small.svg?react";
-import PowerPlug from "./assets/plug-outlet.svg?react";
+// import PowerPlug from "./assets/plug-outlet.svg?react";
 import Action from "./Action";
 import useSockets from "./Sockets";
 function App() {
   const { appState, SEND } = useSockets();
   const { temperature, humidity, ir, ldr, distance, gasLevel } =
     appState.sensors;
-  const { relai1, relai2, relai3, relai4, relai5 } = appState.relays;
+  const { relai1, relai2, relai3, relai4 } = appState.relays;
   return (
     <>
       <header>
@@ -85,14 +85,14 @@ function App() {
         </div> */}
         <div className="action-container">
           <Action
-            Icon={relai1 ? Bulb : BulbOff}
+            Icon={!relai1 ? Bulb : BulbOff}
             name="Lampe - 1"
             isOn={relai1}
             relayName="relay1"
             send={SEND}
           />
           <Action
-            Icon={relai2 ? Bulb : BulbOff}
+            Icon={!relai2 ? Bulb : BulbOff}
             name="Lampe - 2"
             isOn={relai2}
             relayName="relay2"
@@ -112,13 +112,13 @@ function App() {
             relayName="relay4"
             send={SEND}
           />
-          <Action
+          {/* <Action
             Icon={PowerPlug}
             name="Prise"
             isOn={relai5}
             relayName="relay5"
             send={SEND}
-          />
+          /> */}
         </div>
       </main>
     </>

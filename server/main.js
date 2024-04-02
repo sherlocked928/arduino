@@ -22,11 +22,11 @@ class WebSocketItems {
     distance: "--",
     ldrValue: "--",
     gasLevel: "--",
-    relay1: false,
+    relay1: true,
     relay2: true,
-    relay3: false,
-    relay4: false,
-    relay5: false,
+    relay3: true,
+    relay4: true,
+    relay5: true,
   };
 }
 
